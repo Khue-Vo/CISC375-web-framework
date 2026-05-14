@@ -71,8 +71,9 @@ Flask is a lightweight, open-source Python web framework used for building web a
 - **Development Workflow:** Using Flask's debug mode for rapid development and testing
 
 ## Group Contributions
-- **[Member Name 1]:** [Specific contributions - e.g., Backend API development, routing setup]
+- **[Khue Vo]:** Repo set up, README setup
 - **[Member Name 2]:** [Specific contributions - e.g., Frontend design, UI/UX implementation]
+- **[Member Name 3]:** [Specific contributions - e.g., Testing, documentation, presentation]
 - **[Member Name 3]:** [Specific contributions - e.g., Testing, documentation, presentation]
 
 ## Resources Used
