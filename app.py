@@ -1,11 +1,34 @@
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
+import json
+import os
 
 app = Flask(__name__)
 
-# In-memory task storage
-tasks = []
-task_id_counter = 1
+# Load tasks from JSON file
+TASKS_FILE = 'tasks.json'
+
+def load_tasks():
+    """Load tasks from JSON file"""
+    if os.path.exists(TASKS_FILE):
+        with open(TASKS_FILE, 'r') as f:
+            return json.load(f)
+    return []
+
+def save_tasks():
+    """Save tasks to JSON file"""
+    with open(TASKS_FILE, 'w') as f:
+        json.dump(tasks, f, indent=2)
+
+def get_next_id():
+    """Get the next task ID"""
+    if not tasks:
+        return 1
+    return max(task['id'] for task in tasks) + 1
+
+# Load tasks from file at startup
+tasks = load_tasks()
+task_id_counter = get_next_id()
 
 @app.route('/')
 def index():
@@ -33,6 +56,7 @@ def add_task():
     }
     tasks.append(new_task)
     task_id_counter += 1
+    save_tasks()
     
     return jsonify(new_task), 201
 
@@ -45,6 +69,7 @@ def update_task(task_id):
         if task['id'] == task_id:
             if 'completed' in data:
                 task['completed'] = data['completed']
+            save_tasks()
             return jsonify(task), 200
     
     return jsonify({'error': 'Task not found'}), 404
@@ -55,6 +80,7 @@ def delete_task(task_id):
     global tasks
     
     tasks = [task for task in tasks if task['id'] != task_id]
+    save_tasks()
     
     return jsonify({'message': 'Task deleted'}), 200
 
