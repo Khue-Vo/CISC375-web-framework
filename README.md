@@ -1,20 +1,86 @@
+# Flask Task Manager Demo
+
 ## Framework Information
-- Name and version
-- Official documentation link
+- **Name:** Flask
+- **Version:** 2.3.x
+- **Creator:** Armin Ronacher (2010)
+- **Official Documentation:** https://flask.palletsprojects.com/
+- **GitHub:** https://github.com/pallets/flask
+
+## What is Flask?
+Flask is a lightweight, open-source Python web framework used for building web applications. It provides the essential tools needed to create web servers and handle HTTP requests without forcing unnecessary dependencies on developers. Flask follows a "micro-framework" philosophy, meaning it provides core functionality while remaining flexible and extensible.
+
 ## Setup Instructions
-- Prerequisites (Node.js, Python, etc.)
-- Installation steps
-- How to run the demo
+
+### Prerequisites
+- Python 3.7 or higher
+- pip (Python package manager)
+- A modern web browser
+
+### Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd CISC375-web-framework
+   ```
+
+2. Install Flask:
+   ```bash
+   pip install flask
+   ```
+
+3. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+
+4. Open your browser and navigate to:
+   ```
+   http://127.0.0.1:5000
+   ```
+
 ## Features Implemented
-- [x] Display tasks
-- [x] Add task
-- [x] Mark complete
-- [x] Delete task
+- [x] Display a list of tasks
+- [x] Add a new task
+- [x] Mark a task as complete
+- [x] Delete a task
+
+## Architecture Overview
+
+### Backend (app.py)
+- **Framework:** Flask
+- **Routes:**
+  - `GET /` - Serves the main HTML page
+  - `GET /api/tasks` - Returns all tasks in JSON format
+  - `POST /api/tasks` - Creates a new task
+  - `PUT /api/tasks/<id>` - Updates task completion status
+  - `DELETE /api/tasks/<id>` - Removes a task
+
+### Frontend (templates/index.html)
+- **HTML/CSS:** Responsive, modern UI with gradient background
+- **JavaScript:** Vanilla JS for API communication and DOM manipulation
+- **Styling:** CSS flexbox for layout, smooth transitions and hover effects
+
 ## What We Learned
-- Key concepts that were new
+- **Routing in Flask:** Understanding how to map URLs to Python functions using decorators
+- **RESTful API Design:** Creating endpoints that follow HTTP conventions (GET, POST, PUT, DELETE)
+- **Request/Response Handling:** Processing JSON data from the frontend and returning appropriate responses
+- **Frontend-Backend Communication:** Using fetch API to communicate with Flask backend asynchronously
+- **In-Memory Data Storage:** How data persists during a session but resets on server restart
+- **Error Handling:** Validating user input and returning appropriate HTTP status codes
+- **Development Workflow:** Using Flask's debug mode for rapid development and testing
+
 ## Group Contributions
-- [Name]: [Specific contributions]
-- [Name]: [Specific contributions]
-## Resources Used – (use the appropriate ACM format to cite your sources)
-- [Tutorial links]
-- [Articles referenced]
+- **[Member Name 1]:** [Specific contributions - e.g., Backend API development, routing setup]
+- **[Member Name 2]:** [Specific contributions - e.g., Frontend design, UI/UX implementation]
+- **[Member Name 3]:** [Specific contributions - e.g., Testing, documentation, presentation]
+
+## Resources Used
+
+[1] Pallets Projects, "Flask Documentation," 2024. [Online]. Available: https://flask.palletsprojects.com/. [Accessed: May 13, 2026].
+
+[2] Pallets Projects, "Flask by Example," 2024. [Online]. Available: https://flask.palletsprojects.com/tutorial/. [Accessed: May 13, 2026].
+
+[3] M. Kennedy, "Building Web Applications with Flask," Real Python, 2023. [Online]. Available: https://realpython.com/flask-by-example/. [Accessed: May 13, 2026].
+
+[4] Pallets Projects, "Flask API Reference," 2024. [Online]. Available: https://flask.palletsprojects.com/api/. [Accessed: May 13, 2026].
